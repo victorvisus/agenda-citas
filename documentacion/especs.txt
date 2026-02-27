@@ -1,0 +1,8 @@
+- Evitar solapamiento de citas
+- Interfaz gráfica básica (formulario)
+- Complementariamente interfaz gráfica modo calendario
+- Selector de un dia de calendario se puedan ver todas las citas asignadas y horas libres
+- Horas enteras de 10 a 20h, cada cita dura 1 horas
+- Un usuario puede tener multiples citas.
+- App destinada a un profesional, que a través de un formulario da de alta las citas
+- Se puede "inspirar" en código ya hecho (appointments calendar)

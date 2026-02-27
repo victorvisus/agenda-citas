@@ -1,0 +1,19 @@
+Sesión 24 de febrero
+
+SE propone la realización de una agenda-calendario-citas. Debe tener capacidad para asignar citas a un servicio único (no se puede atender a más de un cliente simultáneamente desde el punto de vista del negocio).
+	Por tanto evita solapamientos.
+	Tiene una interfaz gráfica básica que es un formulario.
+	Como complemento tiene interfaz gráfica para ver el modo calendario.
+	Como complemento tiene la funcionalidad de al seleccionar un día de calendario ver todas las citas asignadas y horas libres.
+	Una primera versión podría sólo considerar horas enteras de 10:00 a 20:00, siendo de una sola hora cada cita.
+	En todas las versiones se permite que un usuario pueda tener múltiples citas.
+	Otra consideración es que la aplicación web está destinada al profesional, que a través de formulario da de alta las citas.
+	Se puede "inspirar" en código ya hecho para citas-agendas.
+Modelos: https://codepen.io/guifelix/pen/LMjZpX
+https://www.sliderrevolution.com/resources/html-calendar/
+https://demo.mobiscroll.com/javascript/calendar/appointment-booking
+https://www.cronofy.com/developer/scheduler-api?campaignid=23543513728&adgroupid=193896107898&network=g&device=c&utm_term=embeddable%20calendar%20for%20website&utm_campaign=Search_Generic_SaaS_INFR&utm_source=adwords&utm_medium=ppc&hsa_acc=1571643508&hsa_cam=23543513728&hsa_grp=193896107898&hsa_ad=796346006875&hsa_src=g&hsa_tgt=kwd-2371997885268&hsa_kw=embeddable%20calendar%20for%20website&hsa_mt=p&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=23543513728&gbraid=0AAAAADi9nJ7qziGPtd4la3ySZx953j-Rv&gclid=EAIaIQobChMI8f7dj53ykgMVnQsGAB0oHxjmEAAYAiAAEgI-NPD_BwE
+https://www.w3schools.com/howto/howto_css_calendar.asp
+
+Se explica el uso mediante ejemplos participativos por consola del uso básico de variables, comparadores, operadores aritméticos, strings y comprobación de tipo de JavaScript.
+Se propone la creación de un primer proyecto con seguimiento de versiones en Git y subirlo a GitHub.
