@@ -1,0 +1,28 @@
+:root {
+  /* Tus Colores Personalizados */
+  --color-negro-carbon: rgb(14, 14, 17);
+  --color-gris-antracita: rgb(28, 30, 34);
+  --color-gris-acero: rgb(58, 61, 66);
+  --color-gris-tecnico: rgb(181, 184, 190);
+  --color-verde-criptico: #3aff7a;
+  --color-blanco-tecnico: #f2f3f5;
+
+  /* Tus Fuentes */
+  --font-inter: "Inter", sans-serif;
+  --font-source: "Source Sans 3", sans-serif;
+  --font-jetbrains: "JetBrains Mono", monospace;
+  --font-ejemplo: "Ejemplo", sans-serif;
+}
+
+.bg-background-dark {
+  background-color: var(--color-negro-carbon);
+}
+.bg-background {
+  background-color: var(--color-gris-antracita);
+}
+.text-primary {
+  color: var(--color-blanco-tecnico);
+}
+.font-body {
+  font-family: var(--font-source);
+}
