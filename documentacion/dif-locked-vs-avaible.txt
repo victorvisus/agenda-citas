@@ -1,0 +1,37 @@
+Las id de las citas (y de los huecos disponibles) seran: appointment-yymmddhhmm-randomid e iran colocadas como id en div.appointment-card-group
+
+Para saber si para un div.appointment-card-group debe generar un id se hara........., ¿todos los huecos deben tener un id?
+
+Diferencias entre Cita "available" y "locked"
+
+.available:
+en .appointment-card-hour	> p > span role="img"	del .text-primary
+							add .text-slate-500
+en .appointment-card-content	del .bg-surface-dark;
+				del hover:border-primary;
+				add hover:bg-surface-dark
+
+				.appointment-card-content-inner > h3	add .text-slate-500;
+									del .text-white;
+									Contenido: "Espacio disponible"
+				.appointment-card-content-inner > p > span role="img" el icono es "event_available"
+				.appointment-card-content-inner > p > span .appointment-service-name el contenido es 60 min
+
+				.appointment-card-content-action >	Se muestra el boton add y se oculta del delete
+
+
+.locked:
+en .appointment-card-hour	> p > span role="img"	add .text-primary
+							del .text-slate-500
+en  .appointment-card-content	add .bg-surface-dark
+				add .border-l-4.border-l-primary
+				add  hover:border-primary;
+				del .boder-l
+				del .border-l-border-dark
+				del hover:bg-surface-dark
+
+				> h3	del .text-slate-500;
+					add .text-white;
+					Contenido: "Nombre del cliente"
+				> p > span role="img" el icono corresponderá a cada servicio (por definir)
+				> p > span .appointment-service-name el contenido será el nombre del servicio

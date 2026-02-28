@@ -52,10 +52,6 @@ npm-debug.log*
 *.7z
 
 # --- Archivos temporales de estructura ---
-estructura.txt
-fintemadehtmlcss.txt
+
 
 # --- Imágenes pesadas (opcional) ---
-# Si quieres guardar las imágenes de los ejercicios, deja esto comentado.
-# Si son muy pesadas, descoméntalo:
-# hg-metal-backgrounds/

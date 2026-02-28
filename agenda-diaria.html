@@ -33,15 +33,6 @@
       rel="stylesheet"
     />
 
-    <!-- fontawesome -->
-    <!-- link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    / -->
-
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
       tailwind.config = {
@@ -73,7 +64,7 @@
       };
     </script>
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/formateo.css" />
+    <!-- <link rel="stylesheet" href="./css/formateo.css" /> -->
     <link rel="stylesheet" href="./css/style.css" />
   </head>
 
@@ -179,25 +170,31 @@
           </button>
         </nav>
       </header>
+      <!-- appointments-day-container -->
       <section
-        id="appointments-day-container"
-        class="p-6"
+        id="appointments-day-container-id"
+        class="appointments-day-container p-6"
         role="region"
         aria-label="Lista de citas del día"
         aria-roledescription="Grupos de citas del dia"
       >
+        <!-- Cita 1 - avaible -->
+        <!-- appointment-card-group -->
         <div
-          class="appointment-card-group flex gap-3 mb-3"
+          id="appointment-yymmddhhmm-randomid"
+          class="available appointment-card-group flex gap-3 mb-3"
           aria-roledescription="Detalles generales de la cita"
           role="group"
         >
+          <!-- appointment-card-hour -->
           <div
             class="appointment-card-hour transition-colors cursor-pointer rounded-lg p-4 mr-6"
             aria-roledescription="Hora inicial de la cita"
+            role="group"
           >
             <p class="flex items-center gap-3 mb-3">
               <span
-                class="material-symbols-outlined text-primary text-[18px]"
+                class="material-symbols-outlined text-slate-500 text-[18px]"
                 role="img"
                 >nest_clock_farsight_analog</span
               >
@@ -208,29 +205,145 @@
               >
             </p>
           </div>
+          <!-- appointment-card-content -->
           <div
-            class="appointment-card-content bg-surface-dark p-3 rounded-lg border-l-4 border-l-primary border-y border-r border-y-border-dark border-r-border-dark hover:border-primary transition-colors cursor-pointer flex flex-col basis-full items-start gap-x-3 gap-y-1 mb-3"
+            class="appointment-card-content group p-3 rounded-lg border-l border-y border-r border-l-border-dark border-y-border-dark border-r-border-dark hover:bg-surface-dark transition-colors cursor-pointer flex flex-row basis-full items-center gap-x-3 gap-y-1 mb-3"
             aria-roledescription="Descripción de la cita"
+            role="group"
           >
-            <h3
-              class="appointment-name text-base font-semibold text-white"
-              aria-roledescription="Nombre y apellidos del cliente"
+            <!-- appointment-card-content-inner -->
+            <div
+              class="appointment-card-content-inner flex flex-col"
+              aria-roledescription="Nombre y servicio contratado"
+              role="group"
             >
-              Nombre y Apellidos del cliente
-            </h3>
-            <p
-              class="appointment-service text-slate-400 text-xs flex items-center gap-3"
-              aria-roledescription="Servicio contratado por el cliente"
+              <h3
+                class="appointment-name text-base font-semibold text-slate-400"
+                aria-roledescription="Nombre y apellidos del cliente"
+              >
+                Espacio disponible
+              </h3>
+              <p
+                class="appointment-service text-slate-500 text-xs flex items-center gap-3"
+                aria-roledescription="Servicio contratado por el cliente"
+              >
+                <span
+                  class="material-symbols-outlined text-2xl text-slate-500"
+                  role="img"
+                  >event_available</span
+                >
+                <span
+                  class="appointment-service-name text-slate-500 font-mono text-sm font-medium"
+                  role="text"
+                  >60 min</span
+                >
+              </p>
+            </div>
+            <!-- appointment-card-content-action -->
+            <div
+              class="appointment-card-content-action flex flex-row items-center gap-2 ml-auto opacity-0 group-hover:opacity-100 transition-opacity"
+              aria-roledescription="Acciones disponibles para la cita"
+              role="toolbar"
             >
-              <span class="material-symbols-outlined text-2xl" role="img"
-                >terminal</span
+              <!-- appointement-edit-btn -->
+              <button class="appointement-edit-btn" aria-label="Editar cita">
+                <span class="material-symbols-outlined text-primary"
+                  >change_circle</span
+                >
+              </button>
+              <!-- appointement-add-btn : En citas disponibles se muestra este botón -->
+              <button class="appointement-add-btn" aria-label="Añadir cita">
+                <span class="material-symbols-outlined text-primary"
+                  >add_circle</span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cita 2 Locked -->
+        <!-- appointment-card-group -->
+        <div
+          id="appointment-yymmddhhmm-randomid2"
+          class="locked appointment-card-group flex gap-3 mb-3"
+          aria-roledescription="Detalles generales de la cita"
+          role="group"
+        >
+          <!-- appointment-card-hour -->
+          <div
+            class="appointment-card-hour transition-colors cursor-pointer rounded-lg p-4 mr-6"
+            aria-roledescription="Hora inicial de la cita"
+            role="group"
+          >
+            <p class="flex items-center gap-3 mb-3">
+              <span
+                class="material-symbols-outlined text-primary text-[18px]"
+                role="img"
+                >nest_clock_farsight_analog</span
               >
               <span
-                class="appointment-service-name text-slate-500 font-mono text-sm font-medium"
-                role="text"
-                >Desarrollo web</span
+                class="appointment-hour text-slate-500 font-mono text-sm font-medium"
+                role="timer"
+                >09:00h</span
               >
             </p>
+          </div>
+          <!-- appointment-card-content -->
+          <div
+            class="appointment-card-content group bg-surface-dark p-3 rounded-lg border-l-4 border-l-primary border-y border-r border-y-border-dark border-r-border-dark hover:border-primary transition-colors cursor-pointer flex flex-row basis-full items-center gap-x-3 gap-y-1 mb-3"
+            aria-roledescription="Descripción de la cita"
+            role="group"
+          >
+            <!-- appointment-card-content-inner -->
+            <div
+              class="appointment-card-content-inner flex flex-col"
+              aria-roledescription="Nombre y servicio contratado"
+              role="group"
+            >
+              <h3
+                class="appointment-name text-base font-semibold text-white"
+                aria-roledescription="Nombre y apellidos del cliente"
+              >
+                Nombre y Apellidos del cliente
+              </h3>
+              <p
+                class="appointment-service text-slate-500 text-xs flex items-center gap-3"
+                aria-roledescription="Servicio contratado por el cliente"
+              >
+                <span
+                  class="material-symbols-outlined text-2xl text-slate-500"
+                  role="img"
+                  >terminal</span
+                >
+                <span
+                  class="appointment-service-name text-slate-500 font-mono text-sm font-medium"
+                  role="text"
+                  >Desarrollo web</span
+                >
+              </p>
+            </div>
+            <!-- appointment-card-content-action -->
+            <div
+              class="appointment-card-content-action flex flex-row items-center gap-2 ml-auto opacity-0 group-hover:opacity-100 transition-opacity"
+              aria-roledescription="Acciones disponibles para la cita"
+              role="toolbar"
+            >
+              <!-- appointement-edit-btn -->
+              <button class="appointement-edit-btn" aria-label="Editar cita">
+                <span class="material-symbols-outlined text-primary"
+                  >change_circle</span
+                >
+              </button>
+              <!-- appointement-delete-btn : En citas bloqueadas se muestra este botón -->
+              <button
+                class="appointement-delete-btn"
+                aria-label="Eliminar cita"
+              >
+                <span class="material-symbols-outlined text-primary"
+                  >delete</span
+                >
+              </button>
+            </div>
           </div>
         </div>
       </section>
