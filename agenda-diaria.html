@@ -27,33 +27,46 @@
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
       rel="stylesheet"
     />
+    <!-- Material symbols -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
 
     <!-- fontawesome -->
-    <link
+    <!-- link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
       integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
+    / -->
 
-    <script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
       tailwind.config = {
+        darkMode: "class",
         theme: {
           extend: {
             colors: {
-              "negro-carbon": "#0E0E11",
-              "gris-antracita": "#1C1E22",
-              "gris-acero": "#3A3D42",
-              "gris-tecnico": "#B5B8BE",
-              "verde-criptico": "#3AFF7A",
-              "blanco-tecnico": "#F2F3F5",
+              primary: "#3AFF7A", // Cryptic green
+              "primary-hover": "#2ED665", // Cryptic green hover
+              "background-dark": "#0E0E11", //negro carbón
+              "surface-dark": "#1C1E22", //gris antracita
+              "surface-hover": "#3a3d42", //gris acero
+              "text-primary": "#f2f3f5", //blanco tecnico
+              "text-secondary": "#94A3B8", //gris tecnico mod
+              "border-dark": "#2D3139", //gris antracita mod
             },
             fontFamily: {
-              inter: ["Inter", "sans-serif"],
-              source: ["Source Sans 3", "sans-serif"],
-              jetbrains: ["JetBrains Mono", "monospace"],
+              display: ["Inter", "sans-serif"],
+              body: ["Source Sans 3", "sans-serif"],
+              mono: ["JetBrains Mono", "monospace"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
             },
           },
         },
@@ -65,6 +78,162 @@
   </head>
 
   <body
-    class="bg-background-dark text-primary font-body overflow-hidden min-h-screen"
-  ></body>
+    id="dayli-appointments-page"
+    class="page flex bg-background-dark text-primary font-body overflow-hidden min-h-screen"
+  >
+    <aside
+      class="w-64 border-r border-border-dark bg-surface-dark flex flex-col flex-shrink-0 h-screen sticky top-0"
+    >
+      <div
+        class="p-4 flex items-center gap-3 border-b border-border-dark/50 justify-end"
+      >
+        <div class="mx-auto my-4 text-right" role="group">
+          <img
+            src="./img/Cypher_logotipo-mono-negativo.png"
+            alt="Cypherstudios Logo"
+            class=""
+          />
+
+          <span class="font-mono text-xs text-primary mr-3"
+            >v1.0.0-internal</span
+          >
+        </div>
+      </div>
+      <nav
+        class="menu-nav border-b border-border-dark flex-1 px-4 py-6 flex flex-col gap-2"
+      >
+        <a
+          class="item-menu flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-surface-hover hover:text-white transition-colors group"
+          href="#"
+        >
+          <span
+            class="material-symbols-outlined group-hover:scale-110 transition-transform"
+            >calendar_month</span
+          >
+
+          <span class="text-sm font-medium font-display">Calendario</span>
+        </a>
+        <a
+          class="item-menu active flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-surface-hover hover:text-white transition-colors group"
+          href="#"
+        >
+          <span
+            class="material-symbols-outlined group-hover:scale-110 transition-transform"
+            >view_day</span
+          >
+          <span class="text-sm font-medium font-display">Vista día</span>
+        </a>
+      </nav>
+    </aside>
+
+    <main
+      id="main"
+      class="site-main flex-1 relative flex flex-col h-screen overflow-hidden"
+    >
+      <header
+        class="border-b border-border-dark p-6 flex flex-wrap justify-between items-end gap-4"
+        role="banner"
+      >
+        <div class="flex flex-col gap-1" role="heading">
+          <div
+            class="flex items-center gap-2 text-primary font-mono text-xs tracking-wider uppercase mb-1"
+          >
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            Sistema Online
+          </div>
+          <h2
+            class="text-white text-3xl font-black tracking-tight font-display"
+          >
+            Agenda Diaria
+          </h2>
+          <p class="text-slate-400 text-sm font-normal" role="">
+            Viernes, 27 de Febrero, 2026
+          </p>
+        </div>
+        <nav class="action-nav flex items-center gap-3">
+          <button
+            id="btn-prev-day"
+            class="button-nav flex items-center justify-center gap-2 h-10 px-4 rounded-lg border border-border-dark bg-surface-dark text-slate-300 hover:text-white hover:border-primary/50 transition-all text-sm font-medium"
+          >
+            <span class="material-symbols-outlined text-[18px]"
+              >chevron_left</span
+            >
+            <span class="hidden sm:inline">Anterior</span>
+          </button>
+          <button
+            id="btn-next-day"
+            class="button-nav flex items-center justify-center gap-2 h-10 px-4 rounded-lg border border-border-dark bg-surface-dark text-slate-300 hover:text-white hover:border-primary/50 transition-all text-sm font-medium"
+          >
+            <span class="hidden sm:inline">Siguiente</span>
+            <span class="material-symbols-outlined text-[18px]"
+              >chevron_right</span
+            >
+          </button>
+          <div class="w-px h-8 bg-border-dark mx-1"></div>
+          <button
+            id="btn-new-appointment"
+            class="button-nav flex cursor-pointer items-center justify-center gap-2 h-10 px-5 rounded-lg bg-primary text-background-dark text-sm font-bold shadow-[0_0_15px_rgba(56,255,119,0.2)] hover:shadow-[0_0_20px_rgba(56,255,119,0.4)] hover:bg-primary-hover hover:brightness-110 transition-all"
+          >
+            <span class="material-symbols-outlined text-[20px]">add</span>
+            <span class="truncate">Nueva Cita</span>
+          </button>
+        </nav>
+      </header>
+      <section
+        id="appointments-day-container"
+        class="p-6"
+        role="region"
+        aria-label="Lista de citas del día"
+        aria-roledescription="Grupos de citas del dia"
+      >
+        <div
+          class="appointment-card-group flex gap-3 mb-3"
+          aria-roledescription="Detalles generales de la cita"
+          role="group"
+        >
+          <div
+            class="appointment-card-hour transition-colors cursor-pointer rounded-lg p-4 mr-6"
+            aria-roledescription="Hora inicial de la cita"
+          >
+            <p class="flex items-center gap-3 mb-3">
+              <span
+                class="material-symbols-outlined text-primary text-[18px]"
+                role="img"
+                >nest_clock_farsight_analog</span
+              >
+              <span
+                class="appointment-hour text-slate-500 font-mono text-sm font-medium"
+                role="timer"
+                >08:00h</span
+              >
+            </p>
+          </div>
+          <div
+            class="appointment-card-content bg-surface-dark p-3 rounded-lg border-l-4 border-l-primary border-y border-r border-y-border-dark border-r-border-dark hover:border-primary transition-colors cursor-pointer flex flex-col basis-full items-start gap-x-3 gap-y-1 mb-3"
+            aria-roledescription="Descripción de la cita"
+          >
+            <h3
+              class="appointment-name text-base font-semibold text-white"
+              aria-roledescription="Nombre y apellidos del cliente"
+            >
+              Nombre y Apellidos del cliente
+            </h3>
+            <p
+              class="appointment-service text-slate-400 text-xs flex items-center gap-3"
+              aria-roledescription="Servicio contratado por el cliente"
+            >
+              <span class="material-symbols-outlined text-2xl" role="img"
+                >terminal</span
+              >
+              <span
+                class="appointment-service-name text-slate-500 font-mono text-sm font-medium"
+                role="text"
+                >Desarrollo web</span
+              >
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
