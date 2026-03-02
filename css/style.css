@@ -8,8 +8,10 @@
   --color-blanco-tecnico: #f2f3f5;
 
   --surface-hover: #25282e;
+  --border-dark: #2d3139;
   --text-primary: #e2e8f0;
-  --text-secondary: #94a3b8;
+  --text-secondary: #94a3b8; /*grs tecnico*/
+  --primary-hover: #2ed665;
 
   /* Tus Fuentes */
   --font-inter: "Inter", sans-serif;
@@ -36,7 +38,7 @@
   background-color: var(--color-gris-antracita);
 }
  */
-.item-menu.active {
+.item-menu.current {
   /* .text-primary */
   --tw-text-opacity: 1;
   color: rgb(58 255 122 / var(--tw-text-opacity, 1));
