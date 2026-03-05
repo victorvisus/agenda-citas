@@ -12,7 +12,7 @@
     <meta name="theme-color" content="#0E0E11" />
     <link rel="shortcut icon" href="./img/favicon.svg" type="image/x-icon" />
 
-    <!-- Fonts -->
+    <!--Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -193,9 +193,7 @@
             role="group"
           >
             <p class="flex items-center gap-3 mb-3">
-              <span
-                class="material-symbols-outlined text-slate-500 text-[18px]"
-                role="img"
+              <span class="material-symbols-outlined text-[18px]" role="img"
                 >nest_clock_farsight_analog</span
               >
               <span
@@ -207,7 +205,7 @@
           </div>
           <!-- appointment-card-content -->
           <div
-            class="appointment-card-content group p-3 rounded-lg border-l border-y border-r border-l-border-dark border-y-border-dark border-r-border-dark hover:bg-surface-dark transition-colors cursor-pointer flex flex-row basis-full items-center gap-x-3 gap-y-1 mb-3"
+            class="appointment-card-content group p-3 rounded-lg border-l border-y border-r border-l-border-dark border-y-border-dark border-r-border-dark transition-colors cursor-pointer flex flex-row basis-full items-center gap-x-3 gap-y-1 mb-3"
             aria-roledescription="Descripción de la cita"
             role="group"
           >
@@ -218,7 +216,7 @@
               role="group"
             >
               <h3
-                class="appointment-name text-base font-semibold text-slate-400"
+                class="appointment-name text-base font-semibold"
                 aria-roledescription="Nombre y apellidos del cliente"
               >
                 Espacio disponible
@@ -276,9 +274,7 @@
             role="group"
           >
             <p class="flex items-center gap-3 mb-3">
-              <span
-                class="material-symbols-outlined text-primary text-[18px]"
-                role="img"
+              <span class="material-symbols-outlined text-[18px]" role="img"
                 >nest_clock_farsight_analog</span
               >
               <span
@@ -290,7 +286,7 @@
           </div>
           <!-- appointment-card-content -->
           <div
-            class="appointment-card-content group bg-surface-dark p-3 rounded-lg border-l-4 border-l-primary border-y border-r border-y-border-dark border-r-border-dark hover:border-primary transition-colors cursor-pointer flex flex-row basis-full items-center gap-x-3 gap-y-1 mb-3"
+            class="appointment-card-content group p-3 rounded-lg border-y border-y border-r border-y-border-dark border-r-border-dark transition-colors cursor-pointer flex flex-row basis-full items-center gap-x-3 gap-y-1 mb-3"
             aria-roledescription="Descripción de la cita"
             role="group"
           >
@@ -348,5 +344,50 @@
         </div>
       </section>
     </main>
+
+    <!-- Modal para detalles de cita -->
+    <div id="modal-detalles" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+      <div class="flex items-center justify-center min-h-screen p-4">
+        <div class="bg-surface-dark rounded-lg p-6 w-full max-w-md">
+          <h3 class="text-white text-lg font-bold mb-4">Detalles de la Cita</h3>
+          <div id="modal-content"></div>
+          <button onclick="cerrarModal()" class="mt-4 bg-primary text-background-dark px-4 py-2 rounded">Cerrar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal para nueva cita -->
+    <div id="modal-nueva-cita" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+      <div class="flex items-center justify-center min-h-screen p-4">
+        <div class="bg-surface-dark rounded-lg p-6 w-full max-w-md">
+          <h3 class="text-white text-lg font-bold mb-4">Nueva Cita</h3>
+          <form id="form-nueva-cita">
+            <input type="text" id="nombre_banda" placeholder="Nombre de la banda" required class="w-full mb-2 p-2 bg-background-dark text-white rounded">
+            <input type="text" id="estilo_musical" placeholder="Estilo musical" class="w-full mb-2 p-2 bg-background-dark text-white rounded">
+            <input type="text" id="nombre" placeholder="Nombre" required class="w-full mb-2 p-2 bg-background-dark text-white rounded">
+            <input type="text" id="apellidos" placeholder="Apellidos" required class="w-full mb-2 p-2 bg-background-dark text-white rounded">
+            <input type="tel" id="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 bg-background-dark text-white rounded">
+            <input type="email" id="email" placeholder="Email" required class="w-full mb-2 p-2 bg-background-dark text-white rounded">
+            <select id="servicio" required class="w-full mb-2 p-2 bg-background-dark text-white rounded">
+              <option value="">Seleccionar servicio</option>
+              <option value="concierto">Concierto</option>
+              <option value="meeting">Meeting</option>
+              <option value="masterclass">Masterclass</option>
+              <option value="actuacion">Actuación en general</option>
+              <option value="reserva">Reserva de espacio</option>
+            </select>
+            <input type="date" id="fecha" required class="w-full mb-2 p-2 bg-background-dark text-white rounded">
+            <select id="hora" required class="w-full mb-2 p-2 bg-background-dark text-white rounded">
+              <!-- Opciones generadas dinámicamente -->
+            </select>
+            <button type="submit" class="bg-primary text-background-dark px-4 py-2 rounded">Guardar</button>
+            <button type="button" onclick="cerrarModal()" class="ml-2 bg-gray-500 text-white px-4 py-2 rounded">Cancelar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/app.js"></script>
+    <script src="./js/dom_constructor.js"></script>
   </body>
 </html>

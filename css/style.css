@@ -18,6 +18,10 @@
   --font-source: "Source Sans 3", sans-serif;
   --font-jetbrains: "JetBrains Mono", monospace;
   --font-ejemplo: "Ejemplo", sans-serif;
+
+  --tw-text-opacity: 1;
+  --tw-border-opacity: 1;
+  --tw-bg-opacity: 1;
 }
 
 /* .bg-background-dark {
@@ -40,13 +44,52 @@
  */
 .item-menu.current {
   /* .text-primary */
-  --tw-text-opacity: 1;
   color: rgb(58 255 122 / var(--tw-text-opacity, 1));
   /* .border-primary */
-  --tw-border-opacity: 1;
   border-color: rgb(58 255 122 / var(--tw-border-opacity, 1));
   /*.border-1-2*/
   border-left-width: 2px;
   /*.bg-primary\/10 */
   background-color: rgb(58 255 122 / 0.1);
 }
+
+/**** Estilos cuando un div.appointment-card-group es available o locked ****/
+.available.appointment-card-group {
+  .appointment-card-hour p span[role="img"] {
+    /* .text-slate-500 */
+    color: rgb(100 116 139 / var(--tw-text-opacity, 1));
+  }
+  .appointment-card-content {
+    &:hover {
+      /* hover:bg-surface-dark */
+      background-color: rgb(28 30 34 / var(--tw-bg-opacity, 1));
+    }
+    .appointment-card-content-inner h3 {
+      /* .text-slate-500 */
+      color: rgb(100 116 139 / var(--tw-text-opacity, 1));
+    }
+  }
+}
+.locked.appointment-card-group {
+  .appointment-card-hour p span[role="img"] {
+    /*.text-primary*/
+    color: rgb(58 255 122 / var(--tw-text-opacity, 1));
+  }
+  .appointment-card-content {
+    /* hover:bg-surface-dark */
+    background-color: rgb(28 30 34 / var(--tw-bg-opacity, 1));
+    /*.border-l-4*/
+    border-left-width: 4px;
+    /* .border-l-primary */
+    border-left-color: rgb(58 255 122 / var(--tw-border-opacity, 1));
+    &:hover {
+      /* hover:border-primary */
+      border-color: rgb(58 255 122 / var(--tw-border-opacity, 1));
+    }
+    .appointment-card-content-inner h3 {
+      /*.text-white */
+      color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+    }
+  }
+}
+/**** Fin Estilos cuando un div.appointment-card-group es available o locked ****/

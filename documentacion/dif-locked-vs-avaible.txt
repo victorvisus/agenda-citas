@@ -5,14 +5,14 @@ Para saber si para un div.appointment-card-group debe generar un id se hara.....
 Diferencias entre Cita "available" y "locked"
 
 .available:
-en .appointment-card-hour	> p > span role="img"	del .text-primary
-							add .text-slate-500
-en .appointment-card-content	del .bg-surface-dark;
-				del hover:border-primary;
-				add hover:bg-surface-dark
+en .appointment-card-hour	> p > span role="img"	del .text-primary -------OK
+							add .text-slate-500 -------OK
+en .appointment-card-content	del .bg-surface-dark; -------OK
+				del hover:border-primary; -------OK
+				add hover:bg-surface-dark -------OK
 
-				.appointment-card-content-inner > h3	add .text-slate-500;
-									del .text-white;
+				.appointment-card-content-inner > h3	add .text-slate-500; -------OK
+									del .text-white; -------OK
 									Contenido: "Espacio disponible"
 				.appointment-card-content-inner > p > span role="img" el icono es "event_available"
 				.appointment-card-content-inner > p > span .appointment-service-name el contenido es 60 min
@@ -21,14 +21,14 @@ en .appointment-card-content	del .bg-surface-dark;
 
 
 .locked:
-en .appointment-card-hour	> p > span role="img"	add .text-primary
-							del .text-slate-500
-en  .appointment-card-content	add .bg-surface-dark
-				add .border-l-4.border-l-primary
-				add  hover:border-primary;
-				del .boder-l
-				del .border-l-border-dark
-				del hover:bg-surface-dark
+en .appointment-card-hour	> p > span role="img"	add .text-primary -------OK
+							del .text-slate-500 -------OK
+en  .appointment-card-content	add .bg-surface-dark -------OK
+				add .border-l-4.border-l-primary -------OK
+				add  hover:border-primary; -------OK
+				del .boder-l -------OK
+				del .border-l-border-dark -------OK
+				del hover:bg-surface-dark -------OK
 
 				> h3	del .text-slate-500;
 					add .text-white;
