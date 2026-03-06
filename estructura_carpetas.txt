@@ -1,0 +1,10 @@
+js/
+  models/
+    Cita.js          // Class Cita
+    Agenda.js        // Class Agenda (gestiona array de citas)
+  services/
+    CitaService.js   // funciones para guardar/cargar
+  ui/
+    DateUI.js        // funciones de UI (fecha, navegación)
+    CitasUI.js       // funciones para renderizar tarjetas
+  index.js           // punto de entrada: importa y coordina todo
