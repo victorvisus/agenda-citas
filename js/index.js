@@ -1,6 +1,10 @@
 import { Cita } from "./models/Cita.js";
 import { User } from "./models/User.js";
+import { initManejoFechas } from "./ui/manejo-fechas.js";
 
+initManejoFechas();
+
+console.log("creo dos objetos Cita y User para probar");
 const cita = new Cita(
   "Juan",
   "Pérez",
@@ -10,8 +14,7 @@ const cita = new Cita(
   "09:00",
   "Desarrollo web",
 );
-console.log(cita.nombre); // Juan
-console.log(cita.toJSON());
+if (cita) console.log(cita.toJSON());
 
 const user = new User(
   "victorvxg",
@@ -20,4 +23,4 @@ const user = new User(
   "victorvxg@gmail.com",
   "Admin",
 );
-console.log(user.toJSON());
+if (user) console.log(user.toJSON());

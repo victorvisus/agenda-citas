@@ -22,17 +22,6 @@ export class User {
    * @param {string} username - Nombre de usuario.
    * @param {string} password - Contraseña del usuario.
    * @param {string} passwordConf - Confirmaci n de la contrase a.
-   * @param {string} usr_type - Tipo de usuario.
-   * @throws {BusinessException} - Si el nombre de usuario, la contrase a o el tipo de usuario estan vacios.
-   * @throws {BusinessException} - Si la contrase a no coincide con su confirmaci n.
-   * @throws {BusinessException} - Si la contrase a no cumple con los requisitos de longitud y contenido.
-   */
-
-  /**
-   * Constructor de la clase User.
-   * @param {string} username - Nombre de usuario.
-   * @param {string} password - Contraseña del usuario.
-   * @param {string} passwordConf - Confirmaci n de la contrase a.
    * @param {string} email - Correo electr nico del usuario.
    * @param {string} usr_type - Tipo de usuario.
    * @throws {BusinessException} - Si el nombre de usuario, la contrase a o el tipo de usuario est n vacios.
@@ -61,7 +50,7 @@ export class User {
       throw new BusinessException(ERROR_CODES.EMAIL_INVALIDO);
     if (!validarUserType(usr_type))
       throw new BusinessException(ERROR_CODES.USR_TYPE_INVALIDO);
-    ////////////////////////////////////////
+
     this.#id = generarId();
     this.username = username;
     this.password = password;
@@ -69,7 +58,9 @@ export class User {
     this.usr_type = usr_type;
   }
 
-  // getters & setters /////////////////////////////////////
+  // /////////////////////////////////////////////////////// //
+  // getters & setters ///////////////////////////////////// //
+  // /////////////////////////////////////////////////////// //
   get id() {
     return this.#id;
   }
