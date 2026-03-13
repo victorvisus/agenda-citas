@@ -4,22 +4,28 @@
  * @module utils/validaciones
  */
 
+/**
+ * Objeto que contiene los servicios disponibles.
+ */
 export const SERVICIOS = {
-  DESARROLLO_WEB: "Desarrollo web",
-  DESARROLLO_ECOMMERCE: "Desarrollo Ecommerce",
-  IMPLEMENTACION_TECNICA_DE_DISENOS: "Implementación técnica de diseños",
-  AUDITORIA_WEB: "Auditoría web",
-  OPTIMIZACION_Y_REPARACION_WEB: "Optimización y reparación web",
-  MANTENIMIENTO_WEB: "Mantenimiento web",
-  MIGRACION_WEB: "Migración web",
-  MIGRACION_CORREO: "Migración correo",
-  CONFIGURACION_DE_HOSTING: "Configuración de hosting",
+  DESARROLLO_WEB: 'Desarrollo web',
+  DESARROLLO_ECOMMERCE: 'Desarrollo Ecommerce',
+  IMPLEMENTACION_TECNICA_DE_DISENOS: 'Implementación técnica de diseños',
+  AUDITORIA_WEB: 'Auditoría web',
+  OPTIMIZACION_Y_REPARACION_WEB: 'Optimización y reparación web',
+  MANTENIMIENTO_WEB: 'Mantenimiento web',
+  MIGRACION_WEB: 'Migración web',
+  MIGRACION_CORREO: 'Migración correo',
+  CONFIGURACION_DE_HOSTING: 'Configuración de hosting',
 };
 
+/**
+ *  Objeto que contiene los tipos de usuario disponibles.
+ */
 export const USR_TYPES = {
-  CLIENTE: "Cliente",
-  EMPLEADO: "Empleado",
-  ADMIN: "Admin",
+  CLIENTE: 'Cliente',
+  EMPLEADO: 'Empleado',
+  ADMIN: 'Admin',
 };
 /*
 (?=.*[0-9]) un dígito debe aparecer al menos una vez
@@ -40,28 +46,22 @@ export const USR_TYPES = {
  */
 export function validarPassword(pass, passConf) {
   const pattern =
-    "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!-_@#$%^&+=])(?=\\S+$).{12,}";
+    '(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!-_@#$%^&+=])(?=\\S+$).{12,}';
 
   if (pass !== passConf) {
-    return "PASSWORD_NO_COINCIDEN";
+    return 'PASSWORD_NO_COINCIDEN';
   }
   if (pass.length < 12) {
-    return "PASSWORD_LONGITUD_NO_VALIDA";
+    return 'PASSWORD_LONGITUD_NO_VALIDA';
   }
   if (!pass.match(pattern)) {
-    return "PASSWORD_INVALIDO";
+    return 'PASSWORD_INVALIDO';
   }
 }
 
 /**
- * Valida si el teléfono introducido cumple con el formato esperado.
+ * Valida si el teléfono introducido cumple con el formato esperado, especificado con la expresión regular.
  * La función devuelve true si el teléfono es válido y false en caso contrario.
- * La expresión regular utilizada para la validación es la siguiente:
- * ^\d{3}[-.\s]?\d{3}[-.\s]?\d{3}$
- * Donde ^ indica el principio de la cadena, \d{3} indica que el teléfono debe
- * contener exactamente 3 dígitos, [-.\s] indica que el teléfono puede contener
- * un guión, un punto o un espacio en blanco, y \d{3} indica que el teléfono debe
- * contener exactamente 3 dígitos.
  * La función devuelve false si el teléfono no es una cadena o si no cumple
  * con la expresión regular indicada.
  * @param {string} tel - Teléfono a validar.
@@ -70,27 +70,20 @@ export function validarPassword(pass, passConf) {
  */
 export function validarTelefono(tel) {
   // Comprueba que el teléfono sea una cadena
-  if (typeof tel !== "string" || !tel.trim()) {
-    console.log("el telefono no es una cadena o esta vacio");
+  if (typeof tel !== 'string' || !tel.trim()) {
+    console.log('el telefono no es una cadena o esta vacio');
     return false;
   }
   // Expresión regular para validar el formato del teléfono
   const pattern = /^\d{3}[-.\s]?\d{3}[-.\s]?\d{3}$/;
   const result = pattern.test(tel);
-  console.log("Regex test result:", result, "para", tel.trim());
+  console.log('Regex test result:', result, 'para', tel.trim());
   return result;
 }
 
 /**
- * Valida si el email introducido cumple con el formato esperado.
+ * Valida si el email introducido cumple con el formato esperado, especificado con la expresión regular.
  * La función devuelve true si el email es válido y false en caso contrario.
- * La expresión regular utilizada para la validación es la siguiente:
- * ^[^\s@]+@[^\s@]+\.[^\s@]+$
- * Donde ^ indica el principio de la cadena, [^\s@]+ indica que el email debe
- * contener al menos un carácter distinto de los espacios en blanco y del símbolo @,
- * el símbolo @ indica que el email debe contener al menos un símbolo @,
- * \. indica que el email debe contener al menos un punto,
- * $ indica el final de la cadena.
  * La función también devuelve false si el email no es una cadena o si no cumple
  * con la expresión regular indicada.
  * @param {string} email - Email a validar.
@@ -98,14 +91,14 @@ export function validarTelefono(tel) {
  */
 export function validarEmail(email) {
   // Comprueba que el email sea una cadena
-  if (typeof email !== "string" || !email.trim()) {
-    console.log("el email no es una cadena o esta vacio");
+  if (typeof email !== 'string' || !email.trim()) {
+    console.log('el email no es una cadena o esta vacio');
     return false;
   }
   // Expresión regular para validar el formato del email
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const result = regex.test(email);
-  console.log("Regex test result:", result, "para", email.trim());
+  console.log('Regex test result:', result, 'para', email.trim());
   return result;
 }
 
@@ -120,7 +113,7 @@ export function validarFecha(fecha) {
   hoy.setHours(0, 0, 0, 0); // Establece la hora a 00:00:00
   const fechaSeleccionada = new Date(fecha); // Crea un objeto Date con la fecha seleccionada
   const result = fechaSeleccionada >= hoy; // Comprueba si la fecha seleccionada es posterior o igual a la fecha actual
-  console.log("Regex test result:", result, "para", fechaSeleccionada);
+  console.log('Regex test result:', result, 'para', fechaSeleccionada);
   return result;
 }
 
@@ -134,7 +127,7 @@ export function validarFecha(fecha) {
 export function validarHora(hora) {
   const regex = /^([01]\d|2[0-3]):([0-5]\d)$/; // Expresión regular para validar el formato de la hora, ejemplo: 12:00
   if (!regex.test(hora)) return false; // Comprueba que la hora cumpla con el formato
-  const [horas] = hora.split(":").map(Number); // Obtiene las horas de la hora
+  const [horas] = hora.split(':').map(Number); // Obtiene las horas de la hora
   return horas >= 8 && horas <= 15; // Ejemplo: horario de 8 AM a 3 PM
 }
 
@@ -149,13 +142,13 @@ export function validarHora(hora) {
  */
 export function validarServicio(servicio) {
   // Comprueba que el servicio sea una cadena no vacía
-  if (typeof servicio !== "string" || !servicio.trim()) {
-    console.log("el email no es una cadena o esta vacio");
+  if (typeof servicio !== 'string' || !servicio.trim()) {
+    console.log('el email no es una cadena o esta vacio');
     return false;
   }
   // Comprueba que el servicio sea uno de los definidos
   const result = Object.values(SERVICIOS).includes(servicio);
-  console.log("Regex test result:", result, "para", servicio.trim());
+  console.log('Regex test result:', result, 'para', servicio.trim());
   return result;
 }
 
@@ -169,17 +162,17 @@ export function validarServicio(servicio) {
  * @returns {boolean} - True si las anotaciones son válidas, false en caso contrario.
  */
 export function validarAnotaciones(anotaciones) {
-  return typeof anotaciones === "string" && anotaciones.length <= 200;
+  return typeof anotaciones === 'string' && anotaciones.length <= 200;
 }
 
 export function validarUserType(usr_type) {
   // Comprueba que el usr_type sea una cadena no vacía
-  if (typeof usr_type !== "string" || !usr_type.trim()) {
-    console.log("el usr_type no es una cadena o esta vacio");
+  if (typeof usr_type !== 'string' || !usr_type.trim()) {
+    console.log('el usr_type no es una cadena o esta vacio');
     return false;
   }
   // Comprueba que el usr_type sea uno de los definidos
   const result = Object.values(USR_TYPES).includes(usr_type);
-  console.log("test result:", result, "para", usr_type.trim());
+  console.log('test result:', result, 'para', usr_type.trim());
   return result;
 }
