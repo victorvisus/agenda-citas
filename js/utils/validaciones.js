@@ -176,3 +176,5 @@ export function validarUserType(usr_type) {
   console.log('test result:', result, 'para', usr_type.trim());
   return result;
 }
+
+// TODO: Crear la clase Validations "static" que se puedan usar sus metodos sin instanciar la clase

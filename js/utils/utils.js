@@ -32,3 +32,5 @@ export function generarId() {
 export function generateUserName(usrName = 'usr', cod = getRandomNumber()) {
   return `${usrName}${cod}`;
 }
+
+// TODO: Crear la clase Utils "static" que se puedan usar sus metodos sin instanciar la clase
