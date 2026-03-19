@@ -1,8 +1,8 @@
 import {
   BusinessException,
   ERROR_CODES,
-} from "../exceptions/BusinessExceptions.js";
-import { generarId } from "../utils/utils.js";
+} from '../exceptions/BusinessExceptions.js';
+import { Utils } from '../utils/Utils.js';
 import {
   validarTelefono,
   validarEmail,
@@ -10,7 +10,7 @@ import {
   validarAnotaciones,
   validarFecha,
   validarHora,
-} from "../utils/validaciones.js";
+} from '../utils/validaciones.js';
 
 /**
  * Clase que representa una cita en la agenda.
@@ -36,7 +36,7 @@ export class Cita {
     fecha,
     hora,
     servicio,
-    anotaciones = "",
+    anotaciones = '',
   ) {
     // Validaciones de los campos
     if (
@@ -63,7 +63,7 @@ export class Cita {
       throw new BusinessException(ERROR_CODES.ANOTACIONES_LIMITE);
     ////////////////////////////////////////
 
-    this.#id = generarId();
+    this.#id = Utils.generarId();
     this.#nombre = nombre;
     this.#apellidos = apellidos;
     this.#telefono = telefono;

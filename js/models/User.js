@@ -1,13 +1,13 @@
-import { generarId } from "../utils/utils.js";
+import { Utils } from '../utils/Utils.js';
 import {
   validarPassword,
   validarEmail,
   validarUserType,
-} from "../utils/validaciones.js";
+} from '../utils/validaciones.js';
 import {
   BusinessException,
   ERROR_CODES,
-} from "../exceptions/BusinessExceptions.js";
+} from '../exceptions/BusinessExceptions.js';
 
 export class User {
   #id;
@@ -35,14 +35,14 @@ export class User {
     if (!username || !password || !email || !usr_type) {
       throw new BusinessException(ERROR_CODES.CAMPO_VACIO);
     }
-    if (validarPassword(password, passwordConf) === "PASSWORD_NO_COINCIDEN") {
+    if (validarPassword(password, passwordConf) === 'PASSWORD_NO_COINCIDEN') {
       throw new BusinessException(ERROR_CODES.PASSWORD_NO_COINCIDEN);
     } else if (
-      validarPassword(password, passwordConf) === "PASSWORD_LONGITUD_NO_VALIDA"
+      validarPassword(password, passwordConf) === 'PASSWORD_LONGITUD_NO_VALIDA'
     ) {
       throw new BusinessException(ERROR_CODES.PASSWORD_LONGITUD_INSUFICIENTE);
     } else if (
-      validarPassword(password, passwordConf) === "PASSWORD_INVALIDO"
+      validarPassword(password, passwordConf) === 'PASSWORD_INVALIDO'
     ) {
       throw new BusinessException(ERROR_CODES.PASSWORD_INVALIDO);
     }
@@ -51,7 +51,7 @@ export class User {
     if (!validarUserType(usr_type))
       throw new BusinessException(ERROR_CODES.USR_TYPE_INVALIDO);
 
-    this.#id = generarId();
+    this.#id = Utils.generarId();
     this.username = username;
     this.password = password;
     this.email = email;
@@ -74,9 +74,9 @@ export class User {
     return this.#password;
   }
   set password(password) {
-    if (validarPassword(password) === "PASSWORD_LONGITUD_NO_VALIDA") {
+    if (validarPassword(password) === 'PASSWORD_LONGITUD_NO_VALIDA') {
       throw new BusinessException(ERROR_CODES.PASSWORD_LONGITUD_INSUFICIENTE);
-    } else if (validarPassword(password) === "PASSWORD_INVALIDO") {
+    } else if (validarPassword(password) === 'PASSWORD_INVALIDO') {
       throw new BusinessException(ERROR_CODES.PASSWORD_INVALIDO);
     }
     this.#password = password;
