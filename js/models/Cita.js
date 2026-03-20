@@ -2,7 +2,7 @@ import {
   BusinessException,
   ERROR_CODES,
 } from '../exceptions/BusinessExceptions.js';
-import { Utils } from '../utils/Utils.js';
+import Utils from '../utils/Utils.js';
 import {
   validarTelefono,
   validarEmail,

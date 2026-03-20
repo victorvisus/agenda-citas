@@ -1,4 +1,4 @@
-import { Utils } from '../utils/Utils.js';
+import Utils from '../utils/Utils.js';
 import {
   validarPassword,
   validarEmail,

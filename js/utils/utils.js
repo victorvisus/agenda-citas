@@ -1,4 +1,4 @@
-export class Utils {
+export default class Utils {
   /**
    * Devuelve un número aleatorio entre 1 y 10
    * @returns {number} Un número aleatorio entre 1 y 10
