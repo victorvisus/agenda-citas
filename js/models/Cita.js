@@ -3,15 +3,15 @@ import {
   ERROR_CODES,
 } from '../exceptions/BusinessExceptions.js';
 import Utils from '../utils/Utils.js';
-import {
+/* import {
   validarTelefono,
   validarEmail,
   validarServicio,
   validarAnotaciones,
   validarFecha,
   validarHora,
-} from '../utils/validaciones.js';
-
+} from '../utils/validaciones.js'; */
+import { Validations } from '../utils/validaciones.js';
 /**
  * Clase que representa una cita en la agenda.
  *
@@ -49,17 +49,17 @@ export class Cita {
       !servicio
     )
       throw new BusinessException(ERROR_CODES.CAMPO_VACIO);
-    if (!validarTelefono(telefono))
+    if (!Validations.validarTelefono(telefono))
       throw new BusinessException(ERROR_CODES.TELEFONO_INVALIDO);
-    if (!validarEmail(email))
+    if (!Validations.validarEmail(email))
       throw new BusinessException(ERROR_CODES.EMAIL_INVALIDO);
-    if (!validarFecha(fecha))
+    if (!Validations.validarFecha(fecha))
       throw new BusinessException(ERROR_CODES.FECHA_INVALIDA);
-    if (!validarHora(hora))
+    if (!Validations.validarHora(hora))
       throw new BusinessException(ERROR_CODES.HORA_INVALIDA);
-    if (!validarServicio(servicio))
+    if (!Validations.validarServicio(servicio))
       throw new BusinessException(ERROR_CODES.SERVICIO_INVALIDO);
-    if (!validarAnotaciones(anotaciones))
+    if (!Validations.validarAnotaciones(anotaciones))
       throw new BusinessException(ERROR_CODES.ANOTACIONES_LIMITE);
     ////////////////////////////////////////
 

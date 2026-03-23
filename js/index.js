@@ -1,26 +1,26 @@
-import { Cita } from "./models/Cita.js";
-import { User } from "./models/User.js";
-import { initManejoFechas } from "./ui/manejo-fechas.js";
+import { Cita } from './models/Cita.js';
+import { User } from './models/User.js';
+import { initManejoFechas } from './ui/manejo-fechas.js';
 
 initManejoFechas();
 
-console.log("creo dos objetos Cita y User para probar");
+console.log('creo dos objetos Cita y User para probar');
 const cita = new Cita(
-  "Juan",
-  "Pérez",
-  "123 456 789",
-  "victorvxg@gmail.com",
-  "2026-04-01",
-  "09:00",
-  "Desarrollo web",
+  'Juan',
+  'Pérez',
+  '123 456 789',
+  'victorvxg@gmail.com',
+  '2026-04-01',
+  '09:00',
+  'Desarrollo web',
 );
 if (cita) console.log(cita.toJSON());
 
 const user = new User(
-  "victorvxg",
-  "CP558929v!ch0-X",
-  "CP558929v!ch0-X",
-  "victorvxg@gmail.com",
-  "Admin",
+  'victorvxg',
+  'CP558929v!cho-X',
+  'CP558929v!cho-X',
+  'victorvxg@gmail.com',
+  'Admin',
 );
 if (user) console.log(user.toJSON());

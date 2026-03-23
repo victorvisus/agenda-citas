@@ -1,9 +1,10 @@
 import Utils from '../utils/Utils.js';
-import {
+/* import {
   validarPassword,
   validarEmail,
   validarUserType,
-} from '../utils/validaciones.js';
+} from '../utils/validaciones.js'; */
+import { Validations } from '../utils/validaciones.js';
 import {
   BusinessException,
   ERROR_CODES,
@@ -13,7 +14,6 @@ export class User {
   #id;
   #username;
   #password;
-  #passwordConf;
   #email;
   #usr_type; //falta por implementar
 
@@ -30,32 +30,25 @@ export class User {
    * @throws {BusinessException} - Si el correo electr nico no es v lido.
    * @throws {BusinessException} - Si el tipo de usuario no es v lido.
    */
-  constructor(username, password, passwordConf, email, usr_type) {
+  constructor(_username, _password, _passwordConf, _email, _usr_type) {
     // Validaciones de los campos
-    if (!username || !password || !email || !usr_type) {
+    // Si alguno de los campos está vacío
+    if (!_username || !_password || !_email || !_usr_type) {
       throw new BusinessException(ERROR_CODES.CAMPO_VACIO);
     }
-    if (validarPassword(password, passwordConf) === 'PASSWORD_NO_COINCIDEN') {
+    // Si la contraseña coincide con su confirmación
+    if (
+      Validations.validarPassword(_password, _passwordConf) ===
+      'PASSWORD_NO_COINCIDEN'
+    )
       throw new BusinessException(ERROR_CODES.PASSWORD_NO_COINCIDEN);
-    } else if (
-      validarPassword(password, passwordConf) === 'PASSWORD_LONGITUD_NO_VALIDA'
-    ) {
-      throw new BusinessException(ERROR_CODES.PASSWORD_LONGITUD_INSUFICIENTE);
-    } else if (
-      validarPassword(password, passwordConf) === 'PASSWORD_INVALIDO'
-    ) {
-      throw new BusinessException(ERROR_CODES.PASSWORD_INVALIDO);
-    }
-    if (!validarEmail(email))
-      throw new BusinessException(ERROR_CODES.EMAIL_INVALIDO);
-    if (!validarUserType(usr_type))
-      throw new BusinessException(ERROR_CODES.USR_TYPE_INVALIDO);
 
+    //Genera un id unico y aleatorio
     this.#id = Utils.generarId();
-    this.username = username;
-    this.password = password;
-    this.email = email;
-    this.usr_type = usr_type;
+    this.username = _username;
+    this.password = _password; //en el set realiza otras validaciones
+    this.email = _email;
+    this.usr_type = _usr_type;
   }
 
   // /////////////////////////////////////////////////////// //
@@ -67,31 +60,39 @@ export class User {
   get username() {
     return this.#username;
   }
-  set username(username) {
-    this.#username = username;
+  set username(_username) {
+    this.#username = _username;
   }
   get password() {
     return this.#password;
   }
-  set password(password) {
-    if (validarPassword(password) === 'PASSWORD_LONGITUD_NO_VALIDA') {
+  set password(_password) {
+    if (
+      Validations.validarPassword(_password) === 'PASSWORD_LONGITUD_NO_VALIDA'
+    ) {
       throw new BusinessException(ERROR_CODES.PASSWORD_LONGITUD_INSUFICIENTE);
-    } else if (validarPassword(password) === 'PASSWORD_INVALIDO') {
+    } else if (Validations.validarPassword(_password) === 'PASSWORD_INVALIDO') {
       throw new BusinessException(ERROR_CODES.PASSWORD_INVALIDO);
     }
-    this.#password = password;
+    this.#password = _password;
   }
   get email() {
     return this.#email;
   }
-  set email(email) {
-    this.#email = email;
+  set email(_email) {
+    // valida que el mail cumpla con el estandar
+    if (!Validations.validarEmail(_email))
+      throw new BusinessException(ERROR_CODES.EMAIL_INVALIDO);
+    this.#email = _email;
   }
   get usr_type() {
     return this.#usr_type;
   }
-  set usr_type(usr_type) {
-    this.#usr_type = usr_type;
+  set usr_type(_usr_type) {
+    //valida que el tipo de usuario coincida con los del sistema
+    if (!Validations.validarUserType(_usr_type))
+      throw new BusinessException(ERROR_CODES.USR_TYPE_INVALIDO);
+    this.#usr_type = _usr_type;
   }
 
   toJSON() {
