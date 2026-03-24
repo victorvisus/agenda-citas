@@ -30,8 +30,8 @@ export default class Utils {
     return `${year}${month}${day}${hour}${minute}${randomNumber}`;
   }
 
-  static generateUserName(usrName = 'usr', cod = this.getRandomNumber()) {
-    return `${usrName}${cod}`;
+  static generateUserName(_usrName = 'usr', cod = this.getRandomNumber()) {
+    return `${_usrName}${cod}`;
   }
 
   // TODO: Crear la clase Utils "static" que se puedan usar sus metodos sin instanciar la clase

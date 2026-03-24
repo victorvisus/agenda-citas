@@ -4,7 +4,7 @@ import Utils from '../utils/Utils.js';
   validarEmail,
   validarUserType,
 } from '../utils/validaciones.js'; */
-import { Validations } from '../utils/validaciones.js';
+import { Validations } from '../utils/Validaciones.js';
 import {
   BusinessException,
   ERROR_CODES,
@@ -19,11 +19,11 @@ export class User {
 
   /**
    * Constructor de la clase User.
-   * @param {string} username - Nombre de usuario.
-   * @param {string} password - Contraseña del usuario.
-   * @param {string} passwordConf - Confirmaci n de la contrase a.
-   * @param {string} email - Correo electr nico del usuario.
-   * @param {string} usr_type - Tipo de usuario.
+   * @param {string} _username - Nombre de usuario.
+   * @param {string} _password - Contraseña del usuario.
+   * @param {string} _passwordConf - Confirmaci n de la contrase a.
+   * @param {string} _email - Correo electr nico del usuario.
+   * @param {string} _usr_type - Tipo de usuario.
    * @throws {BusinessException} - Si el nombre de usuario, la contrase a o el tipo de usuario est n vacios.
    * @throws {BusinessException} - Si la contrase a no coincide con su confirmaci n.
    * @throws {BusinessException} - Si la contrase a no cumple con los requisitos de longitud y contenido.

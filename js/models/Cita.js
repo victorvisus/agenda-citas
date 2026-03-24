@@ -11,7 +11,7 @@ import Utils from '../utils/Utils.js';
   validarFecha,
   validarHora,
 } from '../utils/validaciones.js'; */
-import { Validations } from '../utils/validaciones.js';
+import { Validations } from '../utils/Validaciones.js';
 /**
  * Clase que representa una cita en la agenda.
  *
@@ -29,49 +29,49 @@ export class Cita {
   #anotaciones;
 
   constructor(
-    nombre,
-    apellidos,
-    telefono,
-    email,
-    fecha,
-    hora,
-    servicio,
-    anotaciones = '',
+    _nombre,
+    _apellidos,
+    _telefono,
+    _email,
+    _fecha,
+    _hora,
+    _servicio,
+    _anotaciones = '',
   ) {
     // Validaciones de los campos
     if (
-      !nombre ||
-      !apellidos ||
-      !telefono ||
-      !email ||
-      !fecha ||
-      !hora ||
-      !servicio
+      !_nombre ||
+      !_apellidos ||
+      !_telefono ||
+      !_email ||
+      !_fecha ||
+      !_hora ||
+      !_servicio
     )
       throw new BusinessException(ERROR_CODES.CAMPO_VACIO);
-    if (!Validations.validarTelefono(telefono))
+    if (!Validations.validarTelefono(_telefono))
       throw new BusinessException(ERROR_CODES.TELEFONO_INVALIDO);
-    if (!Validations.validarEmail(email))
+    if (!Validations.validarEmail(_email))
       throw new BusinessException(ERROR_CODES.EMAIL_INVALIDO);
-    if (!Validations.validarFecha(fecha))
+    if (!Validations.validarFecha(_fecha))
       throw new BusinessException(ERROR_CODES.FECHA_INVALIDA);
-    if (!Validations.validarHora(hora))
+    if (!Validations.validarHora(_hora))
       throw new BusinessException(ERROR_CODES.HORA_INVALIDA);
-    if (!Validations.validarServicio(servicio))
+    if (!Validations.validarServicio(_servicio))
       throw new BusinessException(ERROR_CODES.SERVICIO_INVALIDO);
-    if (!Validations.validarAnotaciones(anotaciones))
+    if (!Validations.validarAnotaciones(_anotaciones))
       throw new BusinessException(ERROR_CODES.ANOTACIONES_LIMITE);
     ////////////////////////////////////////
 
     this.#id = Utils.generarId();
-    this.#nombre = nombre;
-    this.#apellidos = apellidos;
-    this.#telefono = telefono;
-    this.#email = email;
-    this.#fecha = new Date(fecha); //Convierte string a Date
-    this.#hora = hora;
-    this.#servicio = servicio;
-    this.#anotaciones = anotaciones;
+    this.nombre = _nombre;
+    this.apellidos = _apellidos;
+    this.telefono = _telefono;
+    this.email = _email;
+    this.fecha = new Date(_fecha); //Convierte string a Date
+    this.hora = _hora;
+    this.servicio = _servicio;
+    this.anotaciones = _anotaciones;
   }
 
   // Métodos getters para acceder a las propiedades privadas
@@ -104,29 +104,29 @@ export class Cita {
   }
 
   //Métodos setters para modificar las propiedades privadas
-  set nombre(value) {
-    this.#nombre = value;
+  set nombre(_value) {
+    this.#nombre = _value;
   }
-  set apellidos(value) {
-    this.#apellidos = value;
+  set apellidos(_value) {
+    this.#apellidos = _value;
   }
-  set telefono(value) {
-    this.#telefono = value;
+  set telefono(_value) {
+    this.#telefono = _value;
   }
-  set email(value) {
-    this.#email = value;
+  set email(_value) {
+    this.#email = _value;
   }
-  set fecha(value) {
-    this.#fecha = value;
+  set fecha(_value) {
+    this.#fecha = _value;
   }
-  set hora(value) {
-    this.#hora = value;
+  set hora(_value) {
+    this.#hora = _value;
   }
-  set servicio(value) {
-    this.#servicio = value;
+  set servicio(_value) {
+    this.#servicio = _value;
   }
-  set anotaciones(value) {
-    this.#anotaciones = value;
+  set anotaciones(_value) {
+    this.#anotaciones = _value;
   }
 
   /**
