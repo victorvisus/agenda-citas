@@ -1,0 +1,43 @@
+{
+  "SERVICIOS": {
+    "DESARROLLO_WEB": "Desarrollo web",
+    "DESARROLLO_ECOMMERCE": "Desarrollo Ecommerce",
+    "IMPLEMENTACION_TECNICA_DE_DISENOS": "Implementación técnica de diseños",
+    "AUDITORIA_WEB": "Auditoría web",
+    "OPTIMIZACION_Y_REPARACION_WEB": "Optimización y reparación web",
+    "MANTENIMIENTO_WEB": "Mantenimiento web",
+    "MIGRACION_WEB": "Migración web",
+    "MIGRACION_CORREO": "Migración correo",
+    "CONFIGURACION_DE_HOSTING": "Configuración de hosting"
+  },
+  "HORARIO": [
+    {
+      "desde": "08:00",
+      "hasta": "08:45"
+    },
+    {
+      "desde": "09:00",
+      "hasta": "09:45"
+    },
+    {
+      "desde": "10:00",
+      "hasta": "10:45"
+    },
+    {
+      "desde": "11:00",
+      "hasta": "11:45"
+    },
+    {
+      "desde": "12:00",
+      "hasta": "12:45"
+    },
+    {
+      "desde": "13:00",
+      "hasta": "13:45"
+    },
+    {
+      "desde": "14:00",
+      "hasta": "14:45"
+    }
+  ]
+}

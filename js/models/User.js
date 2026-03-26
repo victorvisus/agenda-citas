@@ -10,7 +10,7 @@ import {
   ERROR_CODES,
 } from '../exceptions/BusinessExceptions.js';
 
-export class User {
+export default class User {
   #id;
   #username;
   #password;

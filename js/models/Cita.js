@@ -17,7 +17,7 @@ import { Validations } from '../utils/Validaciones.js';
  *
  * @description La clase Cita encapsula toda la información relacionada con una cita, incluyendo el nombre, apellidos, teléfono, email, fecha, hora, servicio y anotaciones. Además, genera un identificador único para cada cita basado en la fecha y hora de creación.
  */
-export class Cita {
+export default class Cita {
   #id;
   #nombre;
   #apellidos;
@@ -147,7 +147,7 @@ export class Cita {
     };
   }
   toString() {
-    return JSON.stringify(this);
+    return JSON.stringify(this.toJSON());
   }
 }
 

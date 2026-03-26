@@ -1,5 +1,5 @@
-import { Cita } from './models/Cita.js';
-import { User } from './models/User.js';
+import Cita from './models/Cita.js';
+import User from './models/User.js';
 import { initManejoFechas } from './ui/manejo-fechas.js';
 
 initManejoFechas();

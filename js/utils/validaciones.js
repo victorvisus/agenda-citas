@@ -27,6 +27,36 @@ export const USR_TYPES = {
   EMPLEADO: 'Empleado',
   ADMIN: 'Admin',
 };
+export const HORARIO = [
+  {
+    desde: '08:00',
+    hasta: '08:45',
+  },
+  {
+    desde: '09:00',
+    hasta: '09:45',
+  },
+  {
+    desde: '10:00',
+    hasta: '10:45',
+  },
+  {
+    desde: '11:00',
+    hasta: '11:45',
+  },
+  {
+    desde: '12:00',
+    hasta: '12:45',
+  },
+  {
+    desde: '13:00',
+    hasta: '13:45',
+  },
+  {
+    desde: '14:00',
+    hasta: '14:45',
+  },
+];
 /*
 (?=.*[0-9]) un dígito debe aparecer al menos una vez
 (?=.*[a-z]) una letra minúscula debe aparecer al menos una vez
@@ -85,7 +115,6 @@ export class Validations {
     // Expresión regular para validar el formato del teléfono
     const pattern = /^\d{3}[-.\s]?\d{3}[-.\s]?\d{3}$/;
     const result = pattern.test(_tel);
-    console.log('Regex test result:', result, 'para', _tel.trim());
     return result;
   }
 
@@ -107,7 +136,6 @@ export class Validations {
     // Expresión regular para validar el formato del email
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const result = regex.test(_email);
-    console.log('Regex test result:', result, 'para', _email.trim());
     return result;
   }
 
@@ -122,7 +150,6 @@ export class Validations {
     hoy.setHours(0, 0, 0, 0); // Establece la hora a 00:00:00
     const fechaSeleccionada = new Date(_fecha); // Crea un objeto Date con la fecha seleccionada
     const result = fechaSeleccionada >= hoy; // Comprueba si la fecha seleccionada es posterior o igual a la fecha actual
-    console.log('Regex test result:', result, 'para', fechaSeleccionada);
     return result;
   }
 
@@ -165,7 +192,6 @@ export class Validations {
     this.validarString(_servicio);
     // Comprueba que el servicio sea uno de los definidos
     const result = Object.values(SERVICIOS).includes(_servicio);
-    console.log('Regex test result:', result, 'para', _servicio.trim());
     return result;
   }
 
@@ -191,7 +217,6 @@ export class Validations {
     this.validarString(_usr_type);
     // Comprueba que el usr_type sea uno de los definidos
     const result = Object.values(USR_TYPES).includes(_usr_type);
-    console.log('test result:', result, 'para', _usr_type.trim());
     return result;
   }
 
