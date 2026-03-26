@@ -14,7 +14,7 @@ const cita = new Cita(
   '09:00',
   'Desarrollo web',
 );
-if (cita) console.log(cita.toJSON());
+if (cita) console.log(cita.toString());
 
 const user = new User(
   'victorvxg',
@@ -23,4 +23,4 @@ const user = new User(
   'victorvxg@gmail.com',
   'Admin',
 );
-if (user) console.log(user.toJSON());
+if (user) console.log(user.toString());

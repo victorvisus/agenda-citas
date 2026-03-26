@@ -146,6 +146,9 @@ export class Cita {
       anotaciones: this.#anotaciones,
     };
   }
+  toString() {
+    return JSON.stringify(this);
+  }
 }
 
 /*

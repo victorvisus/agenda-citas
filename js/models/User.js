@@ -104,4 +104,7 @@ export class User {
       usr_type: this.#usr_type,
     };
   }
+  toString() {
+    return JSON.stringify(this);
+  }
 }
